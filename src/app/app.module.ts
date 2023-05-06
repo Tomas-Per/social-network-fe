@@ -15,10 +15,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { AuthModule } from './modules/auth/auth.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { HomeComponent } from './shared/home/home.component';
+import { MatListModule } from '@angular/material/list';
+import { SidenavComponent } from './shared/sidenav/sidenav.component';
 
 @NgModule({
-  declarations: [AppComponent, ToolbarComponent, HomeComponent],
+  declarations: [AppComponent, ToolbarComponent, HomeComponent, SidenavComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,6 +36,8 @@ import { HomeComponent } from './shared/home/home.component';
     MatCardModule,
     FormsModule,
     MatTooltipModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
