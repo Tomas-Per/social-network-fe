@@ -1,0 +1,18 @@
+<!-- <div *ngFor="let comment of comments">
+  <div>{{ comment.content }}</div>
+  <div>{{ comment.author_username }}</div>
+  <app-comment-tree [comments]="comment.replies"></app-comment-tree>
+</div> -->
+
+<div *ngFor="let comment of comments">
+  <div class="comment" [style.padding-left]="getIndent(depth)">
+    <div>{{ comment.content }}</div>
+    <div>{{ comment.author_username }}</div>
+    <p>{{ comment.vote_count }}</p>
+    <!-- <button (click)="upvoteComment(comment)">Upvote</button>
+    <button (click)="downvoteComment(comment)">Downvote</button> -->
+    <div class="nested-comments">
+      <app-comment-tree [comments]="comment.replies" [depth]="depth + 1"></app-comment-tree>
+    </div>
+  </div>
+</div>

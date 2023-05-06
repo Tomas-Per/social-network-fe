@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" style="display: flex; justify-content: space-between;">
+  <div>
+    <button mat-icon-button [routerLink]="''">
+      <mat-icon>home</mat-icon>
+    </button>
+    <span>Social network</span>
+</div>
+  <div class="search-container">
+    <mat-form-field appearance="fill">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="Search...">
+    </mat-form-field>
+  </div>
+  <button mat-icon-button [routerLink]="'login'">
+    <mat-icon>login</mat-icon>
+  </button>
+</mat-toolbar>
+

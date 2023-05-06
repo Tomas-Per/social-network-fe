@@ -1,0 +1,6 @@
+<div>{{ post.title }}</div>
+<div>{{ post.content }}</div>
+<div>{{ post.author_username }}</div>
+<div>{{ post.vote_count }}</div>
+<br>
+<app-comment-tree [comments]="post.comments"></app-comment-tree>
