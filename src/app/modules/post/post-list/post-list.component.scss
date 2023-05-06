@@ -1,0 +1,21 @@
+mat-card {
+    margin-left: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 600px;
+    word-wrap: break-word;
+}
+
+mat-card-subtitle {
+  color: orange;
+  display: flex;
+  align-items: center;
+}
+
+.posted-by-container {
+  margin-left: 50px;
+}
+
+mat-card-footer {
+  border-top: 3px solid orange;
+}

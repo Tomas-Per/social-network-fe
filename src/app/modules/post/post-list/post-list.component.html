@@ -1,1 +1,52 @@
-<p>post-list works!</p>
+
+<mat-card *ngFor="let post of posts">
+  <mat-card-header>
+    <mat-card-subtitle>
+      <div>{{ post.community_name }}</div>
+      <div class="posted-by-container">Posted by {{ post.author_username }}</div>
+      <!-- {{ post.community_name }} Posted by {{ post.author_username }} -->
+    </mat-card-subtitle>
+    <mat-card-title>{{ post.title }}</mat-card-title>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    <p> {{ post.content }} </p>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <p> {{ post.vote_count }}</p>
+    <button mat-icon-button matTooltip="Upvote">
+      <mat-icon>arrow_circle_up</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Downvote">
+      <mat-icon>arrow_circle_down</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Comments">
+      <mat-icon>comment</mat-icon>
+    </button>
+  </mat-card-actions>
+  <mat-card-footer>
+
+  </mat-card-footer>
+</mat-card>
+
+
+<!-- <mat-card *ngFor="let post of posts">
+  <mat-card-header>
+    <mat-card-title> <a><h2>{{ post.title }}</h2></a></mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ post.content }}</p>
+  </mat-card-content>
+</mat-card> -->
+
+
+<!-- <mat-list>
+  <mat-list-item *ngFor="let post of posts">
+    <h3 matLine>{{ post.title }}</h3>
+    <p matLine>{{ post.content }}</p>
+  </mat-list-item>
+</mat-list> -->

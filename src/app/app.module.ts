@@ -21,7 +21,12 @@ import { MatListModule } from '@angular/material/list';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 
 @NgModule({
-  declarations: [AppComponent, ToolbarComponent, HomeComponent, SidenavComponent],
+  declarations: [
+    AppComponent,
+    ToolbarComponent,
+    HomeComponent,
+    SidenavComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

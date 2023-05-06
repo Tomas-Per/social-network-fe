@@ -1,10 +1,19 @@
 mat-sidenav {
+  display: flex;
   height: 100%;
-  width: 200px;
+  width: 180px;
 }
 
 mat-sidenav-container {
-  height: 100%;
-  width: 200px;
   position: fixed;
+  height: 100%;
+}
+
+.item-container {
+  display: flex;
+  align-items: center;
+}
+
+.item-text {
+  margin-left: 10px;
 }

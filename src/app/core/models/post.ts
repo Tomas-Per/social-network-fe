@@ -13,4 +13,5 @@ export class Post {
   url: string = '';
   vote_count: number = 0;
   author_username: string = '';
+  community_name: string = '';
 }
