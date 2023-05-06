@@ -1,9 +1,9 @@
-<mat-toolbar color="primary" style="display: flex; justify-content: space-between;">
-  <div>
+<mat-toolbar color="primary">
+  <div class="item-container">
     <button mat-icon-button [routerLink]="''">
       <mat-icon>home</mat-icon>
     </button>
-    <span>Social network</span>
+    <label>Social network</label>
 </div>
   <div class="search-container">
     <mat-form-field appearance="fill">
@@ -11,8 +11,14 @@
       <input matInput placeholder="Search...">
     </mat-form-field>
   </div>
-  <button mat-icon-button [routerLink]="'login'">
-    <mat-icon>login</mat-icon>
-  </button>
+  <div class="item-container">
+    <label *ngIf="this.authService.isLoggedIn()">{{ this.getUsername() }}</label>
+    <button mat-icon-button *ngIf="!this.authService.isLoggedIn()" [routerLink]="'login'" matTooltip="Login">
+      <mat-icon>login</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="this.authService.isLoggedIn()" (click)="logout()" [routerLink]="'/'" matTooltip="Logout">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
 

@@ -14,9 +14,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { AuthModule } from './modules/auth/auth.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { HomeComponent } from './shared/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, ToolbarComponent],
+  declarations: [AppComponent, ToolbarComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,6 +32,7 @@ import { AuthModule } from './modules/auth/auth.module';
     MatInputModule,
     MatCardModule,
     FormsModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
