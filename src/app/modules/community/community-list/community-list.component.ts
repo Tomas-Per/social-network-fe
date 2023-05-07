@@ -18,7 +18,6 @@ export class CommunityListComponent {
 
   ngOnInit(): void {
     this.communityService.getCommunities().subscribe((communities) => {
-      console.log(communities);
       this.communities = communities;
     });
   }

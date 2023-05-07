@@ -19,9 +19,7 @@ export class PostPageComponent {
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       let id = params.get('id')!;
-      console.log(id);
       this.postService.getPost(id).subscribe((post) => {
-        console.log(post);
         this.post = post;
       });
     });

@@ -15,7 +15,6 @@ export class PostListComponent {
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe((posts) => {
-      console.log(posts);
       this.posts = posts;
     });
   }
