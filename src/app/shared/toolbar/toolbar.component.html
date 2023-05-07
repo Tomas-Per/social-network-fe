@@ -8,7 +8,7 @@
   <div class="search-container">
     <mat-form-field appearance="fill">
       <mat-icon matPrefix>search</mat-icon>
-      <input matInput placeholder="Search...">
+      <input matInput #searchValue placeholder="Search..." (keydown.enter)="search(searchValue.value)">
     </mat-form-field>
   </div>
   <div class="item-container">
