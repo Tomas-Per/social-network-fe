@@ -8,7 +8,7 @@ import { PostData } from '../models/postData';
 })
 export class SearchService {
   api_url = 'http://localhost:8000/api/';
-  search_data: { posts: PostData[]; communities: CommunityData[] } = {
+  searchData: { posts: PostData[]; communities: CommunityData[] } = {
     posts: [],
     communities: [],
   };
@@ -18,15 +18,15 @@ export class SearchService {
     this.http
       .get<PostData[]>(this.api_url + 'posts/?full_text_search=' + searchTerm)
       .subscribe((response) => {
-        this.search_data.posts = response;
+        this.searchData.posts = response;
       });
     this.http
       .get<CommunityData[]>(
         this.api_url + 'communities/?full_text_search=' + searchTerm
       )
       .subscribe((response) => {
-        this.search_data.communities = response;
+        this.searchData.communities = response;
       });
-    return this.search_data;
+    return this.searchData;
   }
 }

@@ -1,0 +1,63 @@
+<h1>Search Results</h1>
+<mat-divider></mat-divider>
+<div class="container">
+<div>
+<div>
+  <h2>Communities</h2>
+  <mat-card class="community-card" *ngFor="let community of this.searchService.searchData.communities" (click)="goToCommunityPosts(community.id)">
+    <mat-card-header>
+      <mat-card-title class="community-title">{{ community.name }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="community-content">
+      <p> {{ community.description }} </p>
+    </mat-card-content>
+
+    <mat-card-footer>
+
+    </mat-card-footer>
+  </mat-card>
+  <mat-divider></mat-divider>
+</div>
+<mat-divider></mat-divider>
+<div>
+  <h2>Posts</h2>
+  <div style="margin-bottom: 50px;">
+    <mat-card class="post-card" *ngFor="let post of this.searchService.searchData.posts">
+      <mat-card-header (click)="goToPost(post.id)">
+        <mat-card-subtitle>
+          <div (click)="goToCommunityPosts(post.community)"> <p class="community-title">{{ post.community_name }}</p></div>
+          <div class="posted-by-container">Posted by {{ post.author_username }}</div>
+          <p class="post-date">{{ post.created_at | dateAgo }}</p>
+        </mat-card-subtitle>
+        <mat-card-title>{{ post.title }}</mat-card-title>
+
+      </mat-card-header>
+
+      <mat-card-content>
+        <p> {{ post.content }} </p>
+        <mat-divider></mat-divider>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <!-- <p> {{ post.vote_count }}</p>
+        <button mat-icon-button matTooltip="Upvote" (click)="upvotePost(post.id)">
+          <mat-icon>arrow_circle_up</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Downvote" (click)="downvotePost(post.id)">
+          <mat-icon>arrow_circle_down</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Comments" (click)="goToPost(post.id)">
+          <mat-icon>comment</mat-icon>
+        </button> -->
+      </mat-card-actions>
+      <mat-card-footer>
+
+      </mat-card-footer>
+    </mat-card>
+    <mat-divider></mat-divider>
+    </div>
+</div>
+</div>
+
+</div>

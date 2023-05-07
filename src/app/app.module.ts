@@ -24,6 +24,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PostDialogComponent } from './shared/post-dialog/post-dialog.component';
 import { CommentDialogComponent } from './shared/comment-dialog/comment-dialog.component';
+import { SearchComponent } from './shared/search/search.component';
+import { PipesModule } from './core/pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { CommentDialogComponent } from './shared/comment-dialog/comment-dialog.c
     SidenavComponent,
     PostDialogComponent,
     CommentDialogComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { CommentDialogComponent } from './shared/comment-dialog/comment-dialog.c
     MatSidenavModule,
     MatListModule,
     MatDialogModule,
+    PipesModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

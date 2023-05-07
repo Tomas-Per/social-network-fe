@@ -6,6 +6,7 @@ import { PostListComponent } from './modules/post/post-list/post-list.component'
 import { CommunityListComponent } from './modules/community/community-list/community-list.component';
 import { CommunityComponent } from './modules/community/community/community.component';
 import { PostPageComponent } from './modules/post/post-page/post-page.component';
+import { SearchComponent } from './shared/search/search.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'post/:id', component: PostPageComponent },
   { path: 'communities', component: CommunityListComponent },
   { path: 'community/:id', component: CommunityComponent },
+  { path: 'search', component: SearchComponent },
 ];
 
 @NgModule({

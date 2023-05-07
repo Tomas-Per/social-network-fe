@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommunityData } from 'src/app/core/models/community';
 import { PostData } from 'src/app/core/models/postData';
 import { CommunityService } from 'src/app/core/services/community.service';
@@ -38,7 +38,6 @@ export class CommunityComponent {
         .getCommunity(this.communityId)
         .subscribe((community) => {
           this.community = community;
-          console.log(this.community);
         });
     });
   }
