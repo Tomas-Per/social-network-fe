@@ -14,7 +14,7 @@ export class PostListComponent {
   constructor(private postService: PostService, private router: Router) {}
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe((posts) => {
+    this.postService.getHotPosts().subscribe((posts) => {
       this.posts = posts;
     });
   }

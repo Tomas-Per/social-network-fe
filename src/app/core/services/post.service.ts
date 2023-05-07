@@ -67,7 +67,7 @@ export class PostService {
     return this.http.get<PostData[]>(this.api_url + 'posts/', options);
   }
 
-  getHotPosts(communityID: string): Observable<PostData[]> {
+  getHotPosts(communityID?: string): Observable<PostData[]> {
     const options = {
       params: new HttpParams().set('trending', 'true'),
     };

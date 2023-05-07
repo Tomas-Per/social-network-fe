@@ -12,7 +12,7 @@ const routes: Routes = [
   // { path: '', redirectTo: '/' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'posts', component: PostListComponent },
+  { path: 'trending', component: PostListComponent },
   { path: 'post/:id', component: PostPageComponent },
   { path: 'communities', component: CommunityListComponent },
   { path: 'community/:id', component: CommunityComponent },
