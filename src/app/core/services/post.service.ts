@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Post } from '../models/post';
 import { Observable } from 'rxjs';
 import { PostData } from '../models/postData';
+import { PostVoteResponse } from '../models/postVote';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,26 @@ export class PostService {
 
   getPosts(): Observable<PostData[]> {
     return this.http.get<PostData[]>(this.api_url + 'posts/');
+  }
+
+  upvotePost(postID: string) {
+    let user_id = localStorage.getItem('user_id');
+    const body = {
+      vote_type: 1,
+      post: postID,
+      user: user_id,
+    };
+    return this.http.post(this.api_url + 'posts/votes/', body);
+  }
+
+  downvotePost(postID: string) {
+    let user_id = localStorage.getItem('user_id');
+    const body = {
+      vote_type: -1,
+      post: postID,
+      user: user_id,
+    };
+    return this.http.post(this.api_url + 'posts/votes/', body);
   }
 
   getCommunityPosts(communityID: string): Observable<PostData[]> {

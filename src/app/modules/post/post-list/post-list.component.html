@@ -16,10 +16,10 @@
 
   <mat-card-actions>
     <p> {{ post.vote_count }}</p>
-    <button mat-icon-button matTooltip="Upvote">
+    <button mat-icon-button matTooltip="Upvote" (click)="upvotePost(post.id)">
       <mat-icon>arrow_circle_up</mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Downvote">
+    <button mat-icon-button matTooltip="Downvote" (click)="downvotePost(post.id)">
       <mat-icon>arrow_circle_down</mat-icon>
     </button>
     <button mat-icon-button matTooltip="Comments" (click)="goToPost(post.id)">

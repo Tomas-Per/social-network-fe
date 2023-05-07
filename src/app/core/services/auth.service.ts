@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import jwtDecode from 'jwt-decode';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +38,17 @@ export class AuthService {
     this.body['username'] = username;
     this.body['password'] = password;
     return this.http.post(this.api_url + 'register/', this.body);
+  }
+
+  refreshToken(): Observable<any> {
+    let body = {
+      refresh: this.getRefreshToken(),
+    };
+    return this.http.post(this.api_url + 'token/refresh/', body).pipe(
+      map((response: any) => {
+        localStorage.setItem('access_token', response['access']);
+      })
+    );
   }
 
   logout() {

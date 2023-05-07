@@ -8,6 +8,7 @@ import { CommunityComponent } from './community/community.component';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { PipesModule } from 'src/app/core/pipes/pipes.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [CommunityListComponent, CommunityComponent],
@@ -19,6 +20,7 @@ import { PipesModule } from 'src/app/core/pipes/pipes.module';
     MatListModule,
     MatButtonToggleModule,
     PipesModule,
+    MatTooltipModule,
   ],
   providers: [],
 })

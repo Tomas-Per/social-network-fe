@@ -23,4 +23,12 @@ export class PostListComponent {
   goToPost(id: string) {
     this.router.navigate(['/post', id]);
   }
+
+  upvotePost(id: string) {
+    this.postService.upvotePost(id).subscribe((response) => {});
+  }
+
+  downvotePost(id: string) {
+    this.postService.downvotePost(id).subscribe((response) => {});
+  }
 }
