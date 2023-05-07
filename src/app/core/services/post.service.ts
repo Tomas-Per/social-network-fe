@@ -3,7 +3,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Post } from '../models/post';
 import { Observable } from 'rxjs';
 import { PostData } from '../models/postData';
-import { PostVoteResponse } from '../models/postVote';
 
 @Injectable({
   providedIn: 'root',
@@ -40,6 +39,10 @@ export class PostService {
     return this.http.post(this.api_url + 'posts/votes/', body);
   }
 
+  createPost(post: any) {
+    return this.http.post(this.api_url + 'posts/', post);
+  }
+
   getCommunityPosts(communityID: string): Observable<PostData[]> {
     const options = { params: new HttpParams().set('community', communityID) };
 
@@ -47,7 +50,7 @@ export class PostService {
   }
 
   getTopPosts(communityID: string): Observable<PostData[]> {
-    const options = { params: new HttpParams().set('order', '-vote_count') };
+    const options = { params: new HttpParams().set('trending', 'false') };
     if (communityID) {
       options.params = options.params.set('community', communityID);
     }
@@ -61,6 +64,16 @@ export class PostService {
       options.params = options.params.set('community', communityID);
     }
 
+    return this.http.get<PostData[]>(this.api_url + 'posts/', options);
+  }
+
+  getHotPosts(communityID: string): Observable<PostData[]> {
+    const options = {
+      params: new HttpParams().set('trending', 'true'),
+    };
+    if (communityID) {
+      options.params = options.params.set('community', communityID);
+    }
     return this.http.get<PostData[]>(this.api_url + 'posts/', options);
   }
 }

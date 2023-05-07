@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { CommunityData } from 'src/app/core/models/community';
 import { PostData } from 'src/app/core/models/postData';
+import { CommunityService } from 'src/app/core/services/community.service';
 import { PostService } from 'src/app/core/services/post.service';
+import { PostDialogComponent } from 'src/app/shared/post-dialog/post-dialog.component';
 
 @Component({
   selector: 'app-community',
@@ -10,21 +14,32 @@ import { PostService } from 'src/app/core/services/post.service';
 })
 export class CommunityComponent {
   posts: PostData[] = [];
+  communityId: string = '';
+  community: CommunityData = {} as CommunityData;
+  selectedVal: string = '';
 
   constructor(
     private postService: PostService,
+    private communityService: CommunityService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
+    this.selectedVal = 'new';
     this.route.paramMap.subscribe((params) => {
-      let id = params.get('id')!;
-      console.log(id);
-      this.postService.getCommunityPosts(id).subscribe((posts) => {
-        console.log(posts);
+      this.communityId = params.get('id')!;
+      this.postService.getNewPosts(this.communityId).subscribe((posts) => {
         this.posts = posts;
       });
+
+      this.communityService
+        .getCommunity(this.communityId)
+        .subscribe((community) => {
+          this.community = community;
+          console.log(this.community);
+        });
     });
   }
 
@@ -38,5 +53,39 @@ export class CommunityComponent {
 
   downvotePost(id: string) {
     this.postService.downvotePost(id).subscribe((response) => {});
+  }
+
+  onValChange(val: string) {
+    this.selectedVal = val;
+  }
+
+  getHotPosts() {
+    this.postService.getHotPosts(this.communityId).subscribe((posts) => {
+      this.posts = posts;
+    });
+  }
+
+  getNewPosts() {
+    this.postService.getNewPosts(this.communityId).subscribe((posts) => {
+      this.posts = posts;
+    });
+  }
+
+  getTopPosts() {
+    this.postService.getTopPosts(this.communityId).subscribe((posts) => {
+      this.posts = posts;
+    });
+  }
+
+  openPostDialog() {
+    this.dialog.open(PostDialogComponent, {
+      width: '500px',
+      height: '400px',
+      data: {
+        community: this.communityId,
+        created_by: localStorage.getItem('user_id'),
+        updated_by: localStorage.getItem('user_id'),
+      },
+    });
   }
 }

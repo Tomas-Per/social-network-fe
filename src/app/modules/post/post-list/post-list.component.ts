@@ -31,4 +31,8 @@ export class PostListComponent {
   downvotePost(id: string) {
     this.postService.downvotePost(id).subscribe((response) => {});
   }
+
+  goToCommunity(id: string) {
+    this.router.navigate(['/community', id]);
+  }
 }

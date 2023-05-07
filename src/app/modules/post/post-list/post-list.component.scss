@@ -37,3 +37,14 @@ mat-card-header:hover {
 mat-card-title {
   margin-bottom: 10px;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 0px;
+}
+
+.community-title:hover {
+  color: #d6b64e;
+  cursor: pointer;
+}

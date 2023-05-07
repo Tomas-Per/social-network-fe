@@ -46,3 +46,18 @@ mat-card-header:hover {
 mat-card-title {
   margin-bottom: 10px;
 }
+
+.community-container {
+  position: fixed;
+  margin-left: 1000px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 250px;
+  height: 300px;
+  word-wrap: break-word;
+}
+
+.community-title {
+  margin-top: 10px;
+  color: orange;
+}

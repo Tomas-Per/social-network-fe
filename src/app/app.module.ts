@@ -21,6 +21,9 @@ import { MatListModule } from '@angular/material/list';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { CommunityModule } from './modules/community/community.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PostDialogComponent } from './shared/post-dialog/post-dialog.component';
+import { CommentDialogComponent } from './shared/comment-dialog/comment-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     ToolbarComponent,
     HomeComponent,
     SidenavComponent,
+    PostDialogComponent,
+    CommentDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,7 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     MatTooltipModule,
     MatSidenavModule,
     MatListModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
