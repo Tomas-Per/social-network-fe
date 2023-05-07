@@ -1,0 +1,19 @@
+<h2> Create post </h2>
+
+<mat-form-field>
+    <input matInput placeholder="Title" [(ngModel)]="title">
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput placeholder="Content" [(ngModel)]="content">
+</mat-form-field>
+
+
+
+<button mat-button (click)="createPost()" color="primary">
+    Post
+</button>
+
+<button mat-button (click)="closeDialog()" color="warn">
+  Cancel
+</button>
