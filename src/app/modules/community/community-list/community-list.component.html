@@ -1,1 +1,13 @@
-<p>community-list works!</p>
+<mat-card *ngFor="let community of communities" (click)="goToCommunityPosts(community.id)">
+  <mat-card-header>
+    <mat-card-title>{{ community.name }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p> {{ community.description }} </p>
+  </mat-card-content>
+
+  <mat-card-footer>
+
+  </mat-card-footer>
+</mat-card>

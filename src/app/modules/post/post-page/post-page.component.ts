@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/core/models/post';
 import { PostService } from 'src/app/core/services/post.service';
 
@@ -10,14 +11,19 @@ import { PostService } from 'src/app/core/services/post.service';
 export class PostPageComponent {
   post: Post = new Post();
 
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.postService
-      .getPost('76e535e0-003d-44c0-9de8-47a430d36de8')
-      .subscribe((postData: Post) => {
-        console.log(postData);
-        this.post = postData;
+    this.route.paramMap.subscribe((params) => {
+      let id = params.get('id')!;
+      console.log(id);
+      this.postService.getPost(id).subscribe((post) => {
+        console.log(post);
+        this.post = post;
       });
+    });
   }
 }

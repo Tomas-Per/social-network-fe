@@ -1,0 +1,48 @@
+.post-card {
+  margin-left: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 600px;
+  word-wrap: break-word;
+}
+
+.post-subtitle {
+color: orange;
+display: flex;
+align-items: center;
+}
+
+.post-footer {
+border-top: 3px solid orange;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 0px;
+}
+
+mat-button-toggle-group {
+  margin-top: 20px;
+  margin-left: 500px;
+}
+
+
+
+.post-date {
+  margin-left: 50px;
+}
+
+mat-card-header {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+mat-card-header:hover {
+  background-color: #4b4b4b;
+  cursor: pointer;
+}
+
+mat-card-title {
+  margin-bottom: 10px;
+}

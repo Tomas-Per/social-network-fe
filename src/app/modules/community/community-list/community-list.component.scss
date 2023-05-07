@@ -1,0 +1,23 @@
+mat-card {
+  margin-left: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 600px;
+  word-wrap: break-word;
+}
+
+mat-card:hover {
+  background-color: #6e6e6e;
+  cursor: pointer;
+}
+
+mat-card-title {
+  color: orange;
+}
+
+
+mat-card-footer {
+  margin-top: 5px;
+  border-top: 3px solid orange;
+}
+

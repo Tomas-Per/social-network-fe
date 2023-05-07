@@ -1,10 +1,9 @@
-
 <mat-card *ngFor="let post of posts">
-  <mat-card-header>
+  <mat-card-header (click)="goToPost(post.id)">
     <mat-card-subtitle>
       <div>{{ post.community_name }}</div>
       <div class="posted-by-container">Posted by {{ post.author_username }}</div>
-      <!-- {{ post.community_name }} Posted by {{ post.author_username }} -->
+      <p class="post-date">{{ post.created_at | dateAgo }}</p>
     </mat-card-subtitle>
     <mat-card-title>{{ post.title }}</mat-card-title>
 
@@ -23,7 +22,7 @@
     <button mat-icon-button matTooltip="Downvote">
       <mat-icon>arrow_circle_down</mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Comments">
+    <button mat-icon-button matTooltip="Comments" (click)="goToPost(post.id)">
       <mat-icon>comment</mat-icon>
     </button>
   </mat-card-actions>
@@ -32,21 +31,3 @@
   </mat-card-footer>
 </mat-card>
 
-
-<!-- <mat-card *ngFor="let post of posts">
-  <mat-card-header>
-    <mat-card-title> <a><h2>{{ post.title }}</h2></a></mat-card-title>
-  </mat-card-header>
-
-  <mat-card-content>
-    <p>{{ post.content }}</p>
-  </mat-card-content>
-</mat-card> -->
-
-
-<!-- <mat-list>
-  <mat-list-item *ngFor="let post of posts">
-    <h3 matLine>{{ post.title }}</h3>
-    <p matLine>{{ post.content }}</p>
-  </mat-list-item>
-</mat-list> -->

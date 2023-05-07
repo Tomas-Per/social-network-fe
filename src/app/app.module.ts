@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { HomeComponent } from './shared/home/home.component';
 import { MatListModule } from '@angular/material/list';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
+import { CommunityModule } from './modules/community/community.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SidenavComponent } from './shared/sidenav/sidenav.component';
     HttpClientModule,
     PostModule,
     AuthModule,
+    CommunityModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,

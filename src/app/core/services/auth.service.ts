@@ -50,4 +50,12 @@ export class AuthService {
     }
     return true;
   }
+
+  getAccessToken() {
+    return localStorage.getItem('access_token');
+  }
+
+  getRefreshToken() {
+    return localStorage.getItem('refresh_token');
+  }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostData } from 'src/app/core/models/postData';
 import { PostService } from 'src/app/core/services/post.service';
 
@@ -10,12 +11,16 @@ import { PostService } from 'src/app/core/services/post.service';
 export class PostListComponent {
   posts: PostData[] = [];
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService, private router: Router) {}
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe((posts) => {
       console.log(posts);
       this.posts = posts;
     });
+  }
+
+  goToPost(id: string) {
+    this.router.navigate(['/post', id]);
   }
 }

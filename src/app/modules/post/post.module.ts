@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PipesModule } from 'src/app/core/pipes/pipes.module';
 
 @NgModule({
   declarations: [PostPageComponent, CommentTreeComponent, PostListComponent],
@@ -18,7 +19,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
+    PipesModule,
   ],
   exports: [PostPageComponent],
+  providers: [],
 })
 export class PostModule {}

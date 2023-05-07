@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Post } from '../models/post';
 import { Observable } from 'rxjs';
 import { PostData } from '../models/postData';
@@ -17,5 +17,29 @@ export class PostService {
 
   getPosts(): Observable<PostData[]> {
     return this.http.get<PostData[]>(this.api_url + 'posts/');
+  }
+
+  getCommunityPosts(communityID: string): Observable<PostData[]> {
+    const options = { params: new HttpParams().set('community', communityID) };
+
+    return this.http.get<PostData[]>(this.api_url + 'posts/', options);
+  }
+
+  getTopPosts(communityID: string): Observable<PostData[]> {
+    const options = { params: new HttpParams().set('order', '-vote_count') };
+    if (communityID) {
+      options.params = options.params.set('community', communityID);
+    }
+
+    return this.http.get<PostData[]>(this.api_url + 'posts/', options);
+  }
+
+  getNewPosts(communityID: string): Observable<PostData[]> {
+    const options = { params: new HttpParams().set('order', '-created_at') };
+    if (communityID) {
+      options.params = options.params.set('community', communityID);
+    }
+
+    return this.http.get<PostData[]>(this.api_url + 'posts/', options);
   }
 }
