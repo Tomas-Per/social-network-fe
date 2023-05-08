@@ -19,20 +19,10 @@ export class PostService {
     return this.http.get<PostData[]>(this.api_url + 'posts/');
   }
 
-  upvotePost(postID: string) {
+  voteOnPost(postID: string, voteType: number) {
     let user_id = localStorage.getItem('user_id');
     const body = {
-      vote_type: 1,
-      post: postID,
-      user: user_id,
-    };
-    return this.http.post(this.api_url + 'posts/votes/', body);
-  }
-
-  downvotePost(postID: string) {
-    let user_id = localStorage.getItem('user_id');
-    const body = {
-      vote_type: -1,
+      vote_type: voteType,
       post: postID,
       user: user_id,
     };

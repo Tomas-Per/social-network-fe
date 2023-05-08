@@ -46,12 +46,8 @@ export class CommunityComponent {
     this.router.navigate(['/post', id]);
   }
 
-  upvotePost(id: string) {
-    this.postService.upvotePost(id).subscribe((response) => {});
-  }
-
-  downvotePost(id: string) {
-    this.postService.downvotePost(id).subscribe((response) => {});
+  voteOnPost(id: string, voteType: number) {
+    this.postService.voteOnPost(id, voteType).subscribe((response) => {});
   }
 
   onValChange(val: string) {
