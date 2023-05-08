@@ -42,7 +42,7 @@ export class AuthInterceptor implements HttpInterceptor {
             })
           );
         } else {
-          return throwError(error);
+          return throwError(() => new Error('Server error'));
         }
       })
     );
