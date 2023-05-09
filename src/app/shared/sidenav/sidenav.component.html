@@ -1,4 +1,5 @@
 <mat-sidenav-container>
+
   <mat-sidenav #sidenav opened [mode]="'side'">
     <mat-nav-list>
 
@@ -8,18 +9,18 @@
           <a class="item-text">Communities</a>
         </div>
       </a>
+
       <a mat-list-item [routerLink]="'/trending'">
         <div class="item-container">
           <mat-icon>trending_up</mat-icon>
           <a class="item-text">Trending</a>
         </div>
       </a>
+
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
     <router-outlet></router-outlet>
-
   </mat-sidenav-content>
-
-
 </mat-sidenav-container>

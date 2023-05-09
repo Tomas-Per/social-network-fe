@@ -1,16 +1,25 @@
 <mat-card>
+
   <mat-card-content>
+
+    <h1>Login</h1>
+
     <form (submit)="login()">
+
         <mat-form-field>
           <mat-label>Username</mat-label>
-          <input type="text" matInput placeholder="Enter your username" [(ngModel)]="username" name="username">
+          <input type="text" matInput placeholder="Enter your username" [(ngModel)]="username" name="username" required>
         </mat-form-field>
+
         <mat-form-field>
           <mat-label>Password</mat-label>
-          <input matInput type="password" placeholder="Enter your password" [(ngModel)]="password" name="password">
+          <input matInput type="password" placeholder="Enter your password" [(ngModel)]="password" name="password" required>
         </mat-form-field>
+
       <button mat-raised-button color="primary" type="submit">Login</button>
       <button class="register-button" mat-raised-button color="primary" [routerLink]="'/register'">Register</button>
+
     </form>
   </mat-card-content>
+
 </mat-card>

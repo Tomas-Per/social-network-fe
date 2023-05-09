@@ -1,14 +1,18 @@
 <div *ngFor="let comment of comments" [style.padding-left]="getIndent(depth)">
+
   <mat-card class="comment-card">
+
     <mat-card-header>
       <mat-card-subtitle>
         <div>Posted by {{ comment.author_username }}</div>
         <p class="post-date">{{ comment.created_at | dateAgo }}</p>
       </mat-card-subtitle>
     </mat-card-header>
+
     <mat-card-content>
       <p>{{ comment.content }}</p>
     </mat-card-content>
+
     <mat-card-actions>
       <p> {{ comment.vote_count }}</p>
       <button mat-icon-button matTooltip="Upvote" (click)="voteOnComment(comment.id, 1)">
@@ -21,12 +25,11 @@
         <mat-icon>reply</mat-icon>
       </button>
     </mat-card-actions>
+
     <mat-card-footer>
     </mat-card-footer>
-    <!-- <div *ngIf="showReplyForm">
-      <app-comment-form [parentId]="comment.id"></app-comment-form>
-    </div> -->
   </mat-card>
+
   <div class="comment-replies" *ngIf="comment.replies">
     <app-comment-tree [comments]="comment.replies" [depth]="depth + 1"></app-comment-tree>
   </div>

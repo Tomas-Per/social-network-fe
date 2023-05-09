@@ -1,16 +1,19 @@
 <mat-toolbar color="primary">
+
   <div class="item-container">
     <button mat-icon-button [routerLink]="'/trending'">
       <mat-icon>home</mat-icon>
     </button>
     <label>Social network</label>
-</div>
+  </div>
+
   <div class="search-container">
     <mat-form-field appearance="fill">
       <mat-icon matPrefix>search</mat-icon>
       <input matInput #searchValue placeholder="Search..." (keydown.enter)="search(searchValue.value)">
     </mat-form-field>
   </div>
+
   <div class="item-container">
     <label *ngIf="this.authService.isLoggedIn()">{{ this.getUsername() }}</label>
     <button mat-icon-button *ngIf="!this.authService.isLoggedIn()" [routerLink]="'login'" matTooltip="Login">
@@ -20,5 +23,6 @@
       <mat-icon>logout</mat-icon>
     </button>
   </div>
+
 </mat-toolbar>
 
