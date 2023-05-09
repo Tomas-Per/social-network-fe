@@ -1,19 +1,22 @@
-<h2> Create post </h2>
+<h2> Create a post </h2>
 
-<mat-form-field>
+<div class="container">
+  <mat-form-field>
     <input matInput placeholder="Title" [(ngModel)]="title">
-</mat-form-field>
+  </mat-form-field>
 
-<mat-form-field>
-    <input matInput placeholder="Content" [(ngModel)]="content">
-</mat-form-field>
+  <mat-form-field>
+    <textarea rows="6" cols="40" matInput placeholder="Content" [(ngModel)]="content" (input)="valueChange(content)" maxlength="280">
+    </textarea>
+  </mat-form-field>
+  <p class="remaining-chars"> {{this.remainingChars}} / 280 </p>
+  <div class="button-container">
+    <button mat-raised-button (click)="createPost()" color="primary">
+        Post
+    </button>
 
-
-
-<button mat-button (click)="createPost()" color="primary">
-    Post
-</button>
-
-<button mat-button (click)="closeDialog()" color="warn">
-  Cancel
-</button>
+    <button mat-raised-button (click)="closeDialog()" color="warn">
+      Cancel
+    </button>
+  </div>
+</div>

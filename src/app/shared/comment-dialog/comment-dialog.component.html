@@ -1,1 +1,18 @@
-<p>comment-dialog works!</p>
+<h2> Reply </h2>
+
+<div class="container">
+  <mat-form-field>
+    <textarea rows="6" cols="40" matInput placeholder="Content" [(ngModel)]="content" (input)="valueChange(content)" maxlength="280">
+    </textarea>
+  </mat-form-field>
+  <p class="remaining-chars"> {{this.remainingChars}} / 280 </p>
+  <div class="button-container">
+    <button mat-raised-button (click)="createComment()" color="primary">
+        Post
+    </button>
+
+    <button mat-raised-button (click)="closeDialog()" color="warn">
+      Cancel
+    </button>
+  </div>
+</div>

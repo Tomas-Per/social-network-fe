@@ -11,11 +11,11 @@ import { PostService } from 'src/app/core/services/post.service';
 export class PostDialogComponent {
   title: string = '';
   content: string = '';
+  remainingChars: number = 0;
 
   constructor(
     private dialogRef: MatDialogRef<PostDialogComponent>,
     private postService: PostService,
-    private router: Router,
     @Inject(MAT_DIALOG_DATA)
     public data: { community: string; created_by: number; updated_by: number }
   ) {}
@@ -39,5 +39,9 @@ export class PostDialogComponent {
         this.dialogRef.close();
         window.location.reload();
       });
+  }
+
+  valueChange(content: string) {
+    this.remainingChars = 0 + content.length;
   }
 }

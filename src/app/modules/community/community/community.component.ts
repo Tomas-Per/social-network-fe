@@ -75,7 +75,7 @@ export class CommunityComponent {
   openPostDialog() {
     this.dialog.open(PostDialogComponent, {
       width: '500px',
-      height: '400px',
+      height: '420px',
       data: {
         community: this.communityId,
         created_by: localStorage.getItem('user_id'),

@@ -1,0 +1,31 @@
+.button-container {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+textarea {
+  resize: none;
+}
+
+.remaining-chars {
+  color: orange;
+  align-self: flex-end;
+  margin-right: 20px;
+}
+
+h2 {
+  margin-left: 20px;
+  color: orange;
+}

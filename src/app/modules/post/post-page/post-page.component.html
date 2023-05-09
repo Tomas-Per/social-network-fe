@@ -1,6 +1,38 @@
-<div>{{ post.title }}</div>
-<div>{{ post.content }}</div>
-<div>{{ post.author_username }}</div>
-<div>{{ post.vote_count }}</div>
-<br>
-<app-comment-tree [comments]="post.comments"></app-comment-tree>
+<div class="container">
+  <div style="margin-bottom: 60px;">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>
+        <!-- <div (click)="goToCommunity(post.community)"> <p class="community-title">{{ post.community_name }}</p></div> -->
+        <div class="posted-by-container">Posted by {{ post.author_username }}</div>
+        <p class="post-date">{{ post.created_at | dateAgo }}</p>
+      </mat-card-subtitle>
+      <mat-card-title>{{ post.title }}</mat-card-title>
+
+    </mat-card-header>
+
+    <mat-card-content>
+      <p> {{ post.content }} </p>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <p> {{ post.vote_count }}</p>
+      <button mat-icon-button matTooltip="Upvote" (click)="voteOnPost(post.id, 1)">
+        <mat-icon>arrow_circle_up</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Downvote" (click)="voteOnPost(post.id, -1)">
+        <mat-icon>arrow_circle_down</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Reply" (click)="openCommentDialog()">
+        <mat-icon>reply</mat-icon>
+      </button>
+    </mat-card-actions>
+    <mat-card-footer>
+    </mat-card-footer>
+  </mat-card>
+  <div class="comment-tree-container">
+    <app-comment-tree [comments]="post.comments"></app-comment-tree>
+  </div>
+  </div>
+</div>

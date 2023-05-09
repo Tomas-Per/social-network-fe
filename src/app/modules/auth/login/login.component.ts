@@ -17,7 +17,7 @@ export class LoginComponent {
     this.authService.login(this.username, this.password).subscribe((data) => {
       this.username = '';
       this.password = '';
-      this.router.navigate(['/']);
+      this.router.navigate(['/trending']);
     });
   }
 }
