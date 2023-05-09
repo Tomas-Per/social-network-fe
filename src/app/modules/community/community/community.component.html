@@ -9,7 +9,7 @@
 
     <mat-card class="post-card" *ngFor="let post of posts">
 
-      <mat-card-header>
+      <mat-card-header (click)="goToPost(post.id)">
         <mat-card-subtitle class="post-subtitle">
           <div class="posted-by-container">Posted by {{ post.author_username }}</div>
           <p class="post-date">{{ post.created_at | dateAgo }}</p>
