@@ -26,6 +26,7 @@ import { PostDialogComponent } from './shared/post-dialog/post-dialog.component'
 import { CommentDialogComponent } from './shared/comment-dialog/comment-dialog.component';
 import { SearchComponent } from './shared/search/search.component';
 import { PipesModule } from './core/pipes/pipes.module';
+import { CommunityDialogComponent } from './shared/community-dialog/community-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PipesModule } from './core/pipes/pipes.module';
     PostDialogComponent,
     CommentDialogComponent,
     SearchComponent,
+    CommunityDialogComponent,
   ],
   imports: [
     BrowserModule,

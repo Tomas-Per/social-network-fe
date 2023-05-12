@@ -1,0 +1,23 @@
+<h2> Create a community </h2>
+
+<div class="container">
+
+  <mat-form-field>
+    <input matInput placeholder="Community name" [(ngModel)]="name" maxlength="50"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea rows="6" cols="40" matInput placeholder="Community description" [(ngModel)]="description" maxlength="300">
+    </textarea>
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="createCommunity()" color="primary">
+        Create
+    </button>
+    <button mat-raised-button (click)="closeDialog()" color="warn">
+      Cancel
+    </button>
+  </div>
+
+</div>

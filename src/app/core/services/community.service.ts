@@ -17,4 +17,8 @@ export class CommunityService {
   getCommunity(id: string): Observable<CommunityData> {
     return this.http.get<CommunityData>(this.api_url + 'communities/' + id);
   }
+
+  createCommunity(community: any) {
+    return this.http.post(this.api_url + 'communities/', community);
+  }
 }
